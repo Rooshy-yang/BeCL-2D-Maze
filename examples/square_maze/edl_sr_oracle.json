@@ -1,0 +1,44 @@
+{
+  "learner_type": "EDL+SR",
+  "agent_type": "maze",
+  "train_type": "ppo",
+
+  "norm_advantage": true,
+  "cycles_per_epoch": 50,
+  "rollouts_per_cycle": 1,
+  "update_epochs_per_rollout": 4,
+
+  "eval_iters": 20,
+  "greedy_eval": false,
+
+  "learning_rate": 0.0003,
+  "epoch_lr_decay": 1,
+
+  "agent_params": {
+    "vae_logdir": "logs/square_maze/vqvae_oracle",
+
+    "env_params": {
+      "n": 50,
+      "maze_type": "square_a",
+      "done_on_success": false
+    },
+
+    "gamma": 0.99,
+    "gae_lambda": 0.98,
+    "entropy_lambda": 0.025,
+
+    "normalize_inputs": false,
+    "env_reward": false,
+
+    "rollouts": 50,
+    "n_mini_batches": 10,
+
+    "hidden_size": 128,
+    "num_layers": 3,
+
+    "shaped_type": "terminal",
+    "use_antigoal": true,
+    "sibling_epsilon": 5.0
+
+  }
+}
